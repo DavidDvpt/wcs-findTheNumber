@@ -12,26 +12,38 @@
         console.log(`Bonjour ${ name }, essayez de trouver le chiffre secret en moins de coups possibles!`);
         let compteur = 0;
 
-        recursivity();
+        recursivity(number, name);        
 
-        function recursivity() {
+        function recursivity(numberToFind, playerName = prompt("What is your name??")) {
             let value = +prompt("Donner une valeur");
             let message = "";
             compteur++;
-            
-            if(value !== number) {
-                if(value > number) {
-                    message = "moins"
-                } else {
-                    message = "plus"    
+
+            if (value !== 0)
+            {
+                if(value !== numberToFind)
+                {
+                    if(value > numberToFind)
+                    {
+                        message = "moins"
+                    }
+                    else
+                    {
+                        message = "plus"    
+                    }
+
+                    console.log(`coup ${ compteur }, c'est ${ message }`);
+
+                    recursivity(numberToFind, playerName);          
                 }
-                console.log(`coup ${ compteur }, c'est ${ message }`);
-                recursivity();          
+
+                console.log(`${ playerName }, vous avez trouvé en ${ compteur } coups !!`);
             }
-
-            console.log(`${ name }, avez trouvé en ${compteur} coups !!`);
+            else
+            {
+                console.log("programme stoppé!");
+            }           
         }
-
     </script>
 </body>
 </html>
