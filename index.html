@@ -9,7 +9,29 @@
     <script>
         let name = prompt("What is your name?")
         let number = Math.floor(Math.random()*100 + 1);
-        
+        console.log(`Bonjour ${ name } essayez de trouver le chiffre secret en moins de coups possible!`);
+        let compteur = 0;
+
+        recursivity();
+
+        function recursivity() {
+            let value = +prompt("Donner une valeur");
+            let message = "";
+            compteur++;
+            
+            if(value !== number) {
+                if(value > number) {
+                    message = "moins"
+                } else {
+                    message = "plus"    
+                }
+                console.log(` coup ${ compteur }, c'est ${ message }`);
+                recursivity();          
+            }
+
+            console.log(`${ name }, avez trouvé en ${compteur} coups !!`);
+        }
+
     </script>
 </body>
 </html>
