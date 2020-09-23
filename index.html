@@ -1,49 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find the number</title>
 </head>
+
 <body>
     <script>
         let name = prompt("What is your name?")
-        let number = Math.floor(Math.random()*100 + 1);
-        console.log(`Bonjour ${ name }, essayez de trouver le chiffre secret en moins de coups possibles!`);
-        let compteur = 0;
+        let number = Math.floor(Math.random() * 100 + 1);
+        console.log(`Bonjour ${name}, essayez de trouver le chiffre secret en moins de coups possibles!`);
+        //let compteur = 0;
 
-        recursivity(number, name);        
+        recursivity(number, name);
 
-        function recursivity(numberToFind, playerName = prompt("What is your name??")) {
+        function recursivity(numberToFind, playerName = prompt("What is your name??"), compteur = 0) {
             let value = +prompt("Donner une valeur");
             let message = "";
             compteur++;
 
-            if (value !== 0)
-            {
-                if(value !== numberToFind)
-                {
-                    if(value > numberToFind)
-                    {
+            if (value !== 0) {
+                if (value !== numberToFind) {
+                    if (value > numberToFind) {
                         message = "moins"
                     }
-                    else
-                    {
-                        message = "plus"    
+                    else {
+                        message = "plus"
                     }
 
-                    console.log(`coup ${ compteur }, c'est ${ message }`);
+                    console.log(`coup ${compteur}, c'est ${message}`);
 
-                    recursivity(numberToFind, playerName);          
+                    recursivity(numberToFind, playerName, compteur);
+                } else {
+                    console.log(`${playerName}, vous avez trouvé en ${compteur} coups !!`);
                 }
 
-                console.log(`${ playerName }, vous avez trouvé en ${ compteur } coups !!`);
             }
-            else
-            {
+            else {
                 console.log("programme stoppé!");
-            }           
+            }
         }
     </script>
 </body>
+
 </html>
